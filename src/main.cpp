@@ -3,6 +3,7 @@
 
 #include "headers/combination.hpp"
 #include "headers/composition.hpp"
+#include "headers/projection.hpp"
 
 using std::cout;
 
@@ -31,8 +32,9 @@ int main() {
     auto smaller_fn = smaller;
     auto function = composition<2, 5, 3>(bigger_fn, smaller_fn);
     auto array3 = function(array2);
+    auto result = projection<1, 3>(array3);
 
-    for (auto n : array3) {
+    for (auto n : result) {
         cout << n << std::endl;
     }
 }
