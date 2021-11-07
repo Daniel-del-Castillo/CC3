@@ -6,6 +6,7 @@
 template<unsigned SIZE1, unsigned SIZE2>
 using fn = std::function<std::array<unsigned, SIZE2>(std::array<unsigned, SIZE1>)>;
 
+// This function represents the composition basic function.
 template<unsigned SIZE1, unsigned SIZE2, unsigned SIZE3>
 fn<SIZE1, SIZE3> composition(
     const fn<SIZE1, SIZE2>& function1,
