@@ -4,6 +4,7 @@
 #include "headers/combination.hpp"
 #include "headers/composition.hpp"
 #include "headers/projection.hpp"
+#include "headers/prf.hpp"
 
 using std::cout;
 
