@@ -7,7 +7,8 @@ std::array<unsigned, 1> Sum::recursion_base_case(
 }
 
 std::array<unsigned, 1> Sum::recursion(
-    const std::array<unsigned, 3>& array
+    const std::array<unsigned, 3>& array,
+    const std::array<unsigned, 1>& further_recursion_result
 ) const noexcept {
     // Succesor function missing
     return projection<3, 3>(array);

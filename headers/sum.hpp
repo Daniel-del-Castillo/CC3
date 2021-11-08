@@ -1,13 +1,13 @@
 #pragma once
 
-#include "headers/prf.hpp"
+#include "headers/prf_with_recursion.hpp"
 
-class Sum : public PRF<2, 1>  {
+class Sum : public PRFWithRecursion<2>  {
    protected:
-    virtual std::array<unsigned, 1> recursion_base_case(
+    std::array<unsigned, 1> recursion_base_case(
         const std::array<unsigned, 1>& array
     ) const noexcept override;
-    virtual std::array<unsigned, 1> recursion(
+    std::array<unsigned, 1> recursion(
         const std::array<unsigned, 3>& array
     ) const noexcept override;
 };
