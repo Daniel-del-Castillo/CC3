@@ -3,13 +3,17 @@
 #include <array>
 #include <algorithm>
 
+#include "headers/combination.hpp"
+#include "headers/composition.hpp"
+#include "headers/projection.hpp"
+
 // PRF stands for primitive recursive function
 template<unsigned SIZE1, unsigned SIZE2>
 class PRF {
     public:
     PRF(); 
     virtual ~PRF(); 
-    std::array<unsigned, SIZE2> operator()(
+    virtual std::array<unsigned, SIZE2> operator()(
         const std::array<unsigned, SIZE1>& array
     ) const noexcept;
    
@@ -42,7 +46,7 @@ std::array<unsigned, SIZE2> PRF<SIZE1, SIZE2>::operator()(
     }
     std::array<unsigned, SIZE1> array_copy;
     std::copy(array.begin(), array.end() - 1, array_copy.begin());
-    array_copy[SIZE1 - 1] = array[SIZE1 - 1];
+    array_copy[SIZE1 - 1] = array[SIZE1 - 1] - 1;
     std::array<unsigned, SIZE1 + 1> recursion_arg;
     std::copy(array.begin(), array.end(), array_copy.begin());
     recursion_arg[SIZE1] = this->operator()(array_copy);
