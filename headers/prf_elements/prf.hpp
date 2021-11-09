@@ -16,6 +16,10 @@
 // to override the () operator. If primitive recursion is needed 
 // PRFWithRecursion should be useful.
 //
+// Keep in mind that this approach only tries to mimic theoric PRFs as closely
+// as possible, efficiency is explicitly not an objective of this project
+// so don't expect the execution to be fast.
+//
 // Formal definition:
 // 𝑓: 𝑁𝑛 → 𝑁𝑚 
 template<unsigned N, unsigned M>
