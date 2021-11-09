@@ -1,38 +1,56 @@
 #include <iostream>
 #include <array>
+#include <string>
+#include <optional>
+#include <stdexcept>
 
-#include "headers/prf_with_recursion.hpp"
+#include "headers/sum.hpp"
 
 using std::cout;
+using std::cin;
+using std::string;
+using std::getline;
+using std::optional;
+using std::nullopt;
+using std::stoi;
+using std::exception;
+using std::array;
 
-std::array<unsigned, 5> bigger(std::array<unsigned, 2> array) {
-    std::array<unsigned, 5> result;
-    for (auto i = 0; i < 2; i++) {
-        result[i] = array[i];
+optional<unsigned> read_number() {
+    string s;
+    getline(cin, s);
+    int result;
+    try {
+        result = stoi(s);
+    } catch (const exception& e) {
+        return nullopt;
     }
-    for (auto i = 0; i < 3; i++) {
-        result[i + 2] = i;
+    if (result < 0) {
+        return nullopt;
     }
-    return result;
-}
-
-std::array<unsigned, 3> smaller(std::array<unsigned, 5> array) {
-    std::array<unsigned, 3> result;
-    for (auto i = 0; i < 3; i++) {
-        result[i] = array[i];
-    }
-    return result;
+    return optional<unsigned>{(unsigned)result};
 }
 
 int main() {
-    std::array<unsigned, 2> array2 = {2, 3};
-    auto bigger_fn = bigger;
-    auto smaller_fn = smaller;
-    auto function = composition<2, 5, 3>(smaller_fn, bigger_fn);
-    auto array3 = function(array2);
-    auto result = projection<1, 3>(array3);
-
-    for (auto n : result) {
-        cout << n << std::endl;
+    cout << "This program calculates powers with a primitive ";
+    cout << "recursive function like architecture:\n";
+    cout << "Write anything other than a natural number for exiting\n\n";
+    Sum sum;
+    while (true) {
+        array<unsigned, 2> input;
+        cout << "Enter the base: ";
+        auto base = read_number();
+        if (!base.has_value()) {
+            break;
+        }
+        input[0] = *base;
+        cout << "Enter the power: ";
+        auto power = read_number();
+        if (!power.has_value()) {
+            break;
+        }
+        input[1] = *power;
+        cout << "The result is: " << sum(input)[0] << "\n\n";
     }
+    cout << "Exiting the program\n";
 }
