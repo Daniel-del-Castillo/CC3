@@ -2,6 +2,7 @@
 
 #include <array>
 #include <algorithm>
+#include <functional>
 
 #include "headers/prf_elements/combination.hpp"
 #include "headers/prf_elements/composition.hpp"
@@ -14,20 +15,37 @@
 // the same elements you would use in paper. For that they would only need
 // to override the () operator. If primitive recursion is needed 
 // PRFWithRecursion should be useful.
-template<unsigned SIZE1, unsigned SIZE2>
+//
+// Formal definition:
+// 𝑓: 𝑁𝑛 → 𝑁𝑚 
+template<unsigned N, unsigned M>
 class PRF {
     public:
     PRF(); 
     virtual ~PRF(); 
-    virtual std::array<unsigned, SIZE2> operator()(
-        const std::array<unsigned, SIZE1>& array
+    virtual std::array<unsigned, M> operator()(
+        const std::array<unsigned, N>& array
     ) const  = 0;
 };
 
-template<unsigned SIZE1, unsigned SIZE2>
-PRF<SIZE1, SIZE2>::PRF() {
-    static_assert(SIZE1 > 0 && SIZE2 > 0);
+template<unsigned N, unsigned M>
+PRF<N, M>::PRF() {
+    static_assert(N > 0 && M > 0);
 }
 
-template<unsigned SIZE1, unsigned SIZE2>
-PRF<SIZE1, SIZE2>::~PRF() {}
+template<unsigned N, unsigned M>
+PRF<N, M>::~PRF() {}
+
+// This function allows to convert a PRF class as a function.
+// This is needed to use the user defined PRFs in a compositions
+// or combinations.
+// The class used in the C template *MUST* be derived from PRF
+template<unsigned N, unsigned M, class C>
+fn<N, M> PRF_to_fn() {
+    return [&]
+        (const std::array<unsigned, N>& array)
+        -> std::array<unsigned, M> {
+        C instance;
+        return instance(array);
+    };
+}
