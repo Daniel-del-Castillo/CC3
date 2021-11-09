@@ -22,7 +22,6 @@
 template<unsigned N>
 class PRFWithRecursion : public PRF<N, 1> {
     public:
-    PRFWithRecursion(); 
     virtual ~PRFWithRecursion(); 
     std::array<unsigned, 1> operator()(
         const std::array<unsigned, N>& array

@@ -5,16 +5,12 @@
 // Zero basic function
 // 𝑧: 𝑁 → 𝑁
 // 𝑥 ∈ 𝑁 → 𝑧(𝑥) = 0 ∈ 𝑁
-std::array<unsigned, 1> zero(const std::array<unsigned, 1>& array)  {
-    return {0};
-}
+std::array<unsigned, 1> zero(const std::array<unsigned, 1>& array);
 
 // Successor basic function
 // 𝑧: 𝑁 → 𝑁
 // 𝑥 ∈ 𝑁 → 𝑧(𝑥) = 0 ∈ 𝑁
-std::array<unsigned, 1> successor(const std::array<unsigned, 1>& array)  {
-    return {array[0] + 1};
-}
+std::array<unsigned, 1> successor(const std::array<unsigned, 1>& array);
 
 // Projection basic function
 // 𝑃𝑖𝑛: 𝑁𝑛 → 𝑁 

@@ -1,10 +1,7 @@
 #include <iostream>
 #include <array>
 
-#include "headers/combination.hpp"
-#include "headers/composition.hpp"
-#include "headers/basic_functions.hpp"
-#include "headers/prf.hpp"
+#include "headers/prf_with_recursion.hpp"
 
 using std::cout;
 
