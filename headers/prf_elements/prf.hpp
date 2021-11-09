@@ -3,9 +3,9 @@
 #include <array>
 #include <algorithm>
 
-#include "headers/combination.hpp"
-#include "headers/composition.hpp"
-#include "headers/basic_functions.hpp"
+#include "headers/prf_elements/combination.hpp"
+#include "headers/prf_elements/composition.hpp"
+#include "headers/prf_elements/basic_functions.hpp"
 
 // PRF stands for primitive recursive function
 // The idea behind this class is that anyone could make a derived

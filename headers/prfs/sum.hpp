@@ -1,6 +1,6 @@
 #pragma once
 
-#include "headers/prf_with_recursion.hpp"
+#include "headers/prf_elements/prf_with_recursion.hpp"
 
 class Sum : public PRFWithRecursion<2>  {
    protected:

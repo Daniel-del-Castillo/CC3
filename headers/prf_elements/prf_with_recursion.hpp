@@ -3,7 +3,7 @@
 #include <array>
 #include <algorithm>
 
-#include "headers/prf.hpp"
+#include "headers/prf_elements/prf.hpp"
 
 // This class represents the PRFs (Primitive Recursive Functions)
 // that use primitive recursion. The separation in two classes is

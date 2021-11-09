@@ -4,7 +4,7 @@
 #include <optional>
 #include <stdexcept>
 
-#include "headers/sum.hpp"
+#include "headers/prfs/sum.hpp"
 
 using std::cout;
 using std::cin;

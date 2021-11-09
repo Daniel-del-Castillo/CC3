@@ -1,4 +1,4 @@
-#include "headers/sum.hpp"
+#include "headers/prfs/sum.hpp"
 
 std::array<unsigned, 1> Sum::recursion_base_case(
     const std::array<unsigned, 1>& array
