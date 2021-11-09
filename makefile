@@ -3,7 +3,7 @@ CXXFLAGS = -I . -Wall -Werror -Wextra -pedantic -Wno-unused-parameter
 
 all: BIN bin/power_prf
 
-bin/power_prf: src/main.cpp bin/sum.o bin/basic_functions.o bin/multiplication.o bin/power.o
+bin/power_prf: src/main.cpp bin/sum.o bin/basic_functions.o bin/multiplication.o bin/power.o bin/one.o
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
 bin/sum.o: src/prfs/sum.cpp 
@@ -13,6 +13,9 @@ bin/multiplication.o: src/prfs/multiplication.cpp
 	$(CXX) $(CXXFLAGS) -c -o $@ $^
 
 bin/power.o: src/prfs/power.cpp 
+	$(CXX) $(CXXFLAGS) -c -o $@ $^
+
+bin/one.o: src/prfs/one.cpp 
 	$(CXX) $(CXXFLAGS) -c -o $@ $^
 
 bin/basic_functions.o: src/basic_functions.cpp 

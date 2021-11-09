@@ -3,10 +3,7 @@
 std::array<unsigned, 1> Power::recursion_base_case(
     const std::array<unsigned, 1>& array
 ) const  {
-    return composition<1, 1, 1>(
-        successor,
-        zero
-    )(array);
+    return PRF_to_fn<1, 1, One>()(array);
 }
 
 std::array<unsigned, 1> Power::recursion(

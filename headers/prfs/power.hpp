@@ -2,6 +2,7 @@
 
 #include "headers/prf_elements/prf_with_recursion.hpp"
 #include "headers/prfs/multiplication.hpp"
+#include "headers/prfs/one.hpp"
 
 class Power : public PRFWithRecursion<2>  {
    protected:
