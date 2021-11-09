@@ -3,7 +3,7 @@
 std::array<unsigned, 1> Multiplication::recursion_base_case(
     const std::array<unsigned, 1>& array
 ) const  {
-    return projection<1, 1>(array);
+    return zero(array);
 }
 
 std::array<unsigned, 1> Multiplication::recursion(

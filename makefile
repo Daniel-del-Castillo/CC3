@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -I . -Wall -Werror -Wextra -pedantic -Wno-unused-parameter
+CXXFLAGS = -I . -Wall -Werror -Wextra -pedantic -Wno-unused-parameter -g
 
 all: BIN bin/power_prf
 

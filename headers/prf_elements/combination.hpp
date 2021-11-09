@@ -27,7 +27,7 @@ fn<N, M + K> combination(
         std::array<unsigned, K> array2 = g(array);
         std::array<unsigned, M + K> result;
         std::copy(array1.begin(), array1.end(), result.begin());
-        std::copy(array2.begin(), array2.end(), result.begin() + N);
+        std::copy(array2.begin(), array2.end(), result.begin() + M);
         return result;
     };
 }
