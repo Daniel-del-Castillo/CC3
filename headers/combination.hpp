@@ -3,23 +3,31 @@
 #include <array>
 #include <algorithm>
 
-template<unsigned SIZE1, unsigned SIZE2>
-using fn = std::function<std::array<unsigned, SIZE2>(std::array<unsigned, SIZE1>)>;
+template<unsigned N, unsigned M>
+using fn = std::function<std::array<unsigned, M>(std::array<unsigned, N>)>;
 
 // This function represents the combination basic function.
-template<unsigned SIZE1, unsigned SIZE2, unsigned SIZE3>
-fn<SIZE1, SIZE2 + SIZE3> combination(
-    const fn<SIZE1, SIZE2>& function1,
-    const fn<SIZE1, SIZE3>& function2
+// Formal definition:
+// ℎ = 𝑓 𝑥 𝑔: 𝑁𝑛 → 𝑁𝑚+𝑘 
+// Using:
+// 𝑓: 𝑁𝑛 → 𝑁𝑚 
+// 𝑔: 𝑁𝑛 → 𝑁𝑘 
+// Defined as:
+// ℎ: 𝑁𝑛 → 𝑁𝑚+𝑘 
+// 𝑋 = (𝑥1,⋯,𝑥𝑛) ∈ 𝑁𝑛 → ℎ(𝑋)= (𝑓(𝑋),𝑔(𝑋))
+template<unsigned N, unsigned M, unsigned K>
+fn<N, M + K> combination(
+    const fn<N, M>& f,
+    const fn<N, K>& g
 ) {
     return [&]
-        (const std::array<unsigned, SIZE1>& array)
-        -> std::array<unsigned, SIZE2 + SIZE3> {
-        std::array<unsigned, SIZE2> array1 = function1(array);
-        std::array<unsigned, SIZE3> array2 = function2(array);
-        std::array<unsigned, SIZE2 + SIZE3> result;
+        (const std::array<unsigned, N>& array)
+        -> std::array<unsigned, M + K> {
+        std::array<unsigned, M> array1 = f(array);
+        std::array<unsigned, K> array2 = g(array);
+        std::array<unsigned, M + K> result;
         std::copy(array1.begin(), array1.end(), result.begin());
-        std::copy(array2.begin(), array2.end(), result.begin() + SIZE1);
+        std::copy(array2.begin(), array2.end(), result.begin() + N);
         return result;
     };
 }

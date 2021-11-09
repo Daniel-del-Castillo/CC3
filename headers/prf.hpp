@@ -5,7 +5,7 @@
 
 #include "headers/combination.hpp"
 #include "headers/composition.hpp"
-#include "headers/projection.hpp"
+#include "headers/basic_functions.hpp"
 
 // PRF stands for primitive recursive function
 template<unsigned SIZE1, unsigned SIZE2>
