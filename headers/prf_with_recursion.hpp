@@ -19,6 +19,9 @@
 // 𝑋 = (𝑥1,⋯,𝑥𝑛) ∈ 𝑁𝑛  
 // 𝑓(𝑋, 0) = 𝑔(𝑋)  
 // 𝑓(𝑋, 𝑆(𝑦)) = ℎ(𝑋, 𝑦, 𝑓(𝑋, 𝑦))
+//
+// To represent a PRF using this class the recursion_base_case and
+// recursion functions must be overridden.
 template<unsigned N>
 class PRFWithRecursion : public PRF<N, 1> {
     public:
