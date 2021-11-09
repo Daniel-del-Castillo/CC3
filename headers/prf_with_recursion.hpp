@@ -17,15 +17,15 @@ class PRFWithRecursion : public PRF<SIZE, 1> {
     virtual ~PRFWithRecursion(); 
     std::array<unsigned, 1> operator()(
         const std::array<unsigned, SIZE>& array
-    ) const noexcept override;
+    ) const override;
    
     protected:
     virtual std::array<unsigned, 1> recursion_base_case(
         const std::array<unsigned, SIZE - 1>& array
-    ) const noexcept = 0;
+    ) const = 0;
     virtual std::array<unsigned, 1> recursion(
         const std::array<unsigned, SIZE + 1>& array
-    ) const noexcept = 0;
+    ) const = 0;
     
 };
 
@@ -36,7 +36,7 @@ PRFWithRecursion<SIZE>::~PRFWithRecursion() {}
 template<unsigned SIZE>
 std::array<unsigned, 1> PRFWithRecursion<SIZE>::operator()(
     const std::array<unsigned, SIZE>& array
-) const noexcept {
+) const {
     if (array[SIZE - 1] == 0) {
         std::array<unsigned, SIZE - 1> base_arg;
         std::copy(array.begin(), array.end() - 1, base_arg.begin());

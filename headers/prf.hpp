@@ -15,7 +15,7 @@ class PRF {
     virtual ~PRF(); 
     virtual std::array<unsigned, SIZE2> operator()(
         const std::array<unsigned, SIZE1>& array
-    ) const noexcept = 0;
+    ) const  = 0;
 };
 
 template<unsigned SIZE1, unsigned SIZE2>

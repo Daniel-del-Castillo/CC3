@@ -11,7 +11,7 @@ template<unsigned SIZE1, unsigned SIZE2, unsigned SIZE3>
 fn<SIZE1, SIZE2 + SIZE3> combination(
     const fn<SIZE1, SIZE2>& function1,
     const fn<SIZE1, SIZE3>& function2
-) noexcept {
+) {
     return [&]
         (const std::array<unsigned, SIZE1>& array)
         -> std::array<unsigned, SIZE2 + SIZE3> {

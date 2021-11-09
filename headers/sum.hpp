@@ -6,8 +6,8 @@ class Sum : public PRFWithRecursion<2>  {
    protected:
     std::array<unsigned, 1> recursion_base_case(
         const std::array<unsigned, 1>& array
-    ) const noexcept override;
+    ) const  override;
     std::array<unsigned, 1> recursion(
         const std::array<unsigned, 3>& array
-    ) const noexcept override;
+    ) const  override;
 };
