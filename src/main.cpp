@@ -4,7 +4,7 @@
 #include <optional>
 #include <stdexcept>
 
-#include "headers/prfs/multiplication.hpp"
+#include "headers/prfs/power.hpp"
 
 using std::cout;
 using std::cin;
@@ -35,7 +35,7 @@ int main() {
     cout << "This program calculates powers with a primitive ";
     cout << "recursive function like architecture:\n";
     cout << "Write anything other than a natural number for exiting\n\n";
-    Multiplication multiplication;
+    Power power_prf;
     while (true) {
         array<unsigned, 2> input;
         cout << "Enter the base: ";
@@ -50,7 +50,7 @@ int main() {
             break;
         }
         input[1] = *power;
-        cout << "The result is: " << multiplication(input)[0] << "\n\n";
+        cout << "The result is: " << power_prf(input)[0] << "\n\n";
     }
     cout << "Exiting the program\n";
 }
