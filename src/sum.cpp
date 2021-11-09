@@ -3,7 +3,10 @@
 std::array<unsigned, 1> Sum::recursion_base_case(
     const std::array<unsigned, 1>& array
 ) const  {
-    return projection<1, 1>(array);
+    return composition<1, 1, 1>(
+        successor,
+        composition<1, 1, 1>(zero, projection<1, 1>)
+    )(array);
 }
 
 std::array<unsigned, 1> Sum::recursion(
